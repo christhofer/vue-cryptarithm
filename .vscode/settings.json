@@ -1,0 +1,27 @@
+{
+  "editor.tabSize": 2,
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.fixAll.stylelint": "always"
+  },
+  "eslint.validate": [
+    "vue",
+    "javascript",
+    "typescript"
+  ],
+  "stylelint.validate": [
+    "css",
+    "vue",
+    "tailwindcss"
+  ],
+  "prettier.enable": false,
+  "files.eol": "\n",
+  "files.associations": {
+    "*.css": "tailwindcss",
+  },
+  "css.validate": false
+  // "css.customData": [
+  //   ".vscode/tailwindcss.json"
+  // ],
+}
