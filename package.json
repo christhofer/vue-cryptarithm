@@ -13,7 +13,10 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@gradin/tailwindcss-scrollbar": "^3.0.1",
     "@stylistic/eslint-plugin": "^5.10.0",
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/node": "^25.5.2",
     "@unocss/eslint-config": "^66.6.7",
     "@vitejs/plugin-vue": "^6.0.0",
     "@vue/tsconfig": "^0.9.1",

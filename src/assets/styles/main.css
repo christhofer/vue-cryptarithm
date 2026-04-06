@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import "tailwindcss";
+@import "./theme.css";
+
+@plugin "@gradin/tailwindcss-scrollbar";
+
+@layer base {
+  html {
+    /* @apply bg-[var(--bg-app)]; */
+    font-family: Nunito, sans-serif;
+    color: var(--color-gray-700);
+  }
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    /* restore tailwindcss v3 behavior giving default border color */
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
