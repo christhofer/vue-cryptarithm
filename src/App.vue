@@ -1,8 +1,9 @@
 <script setup lang="ts">
+  import PageHome from '@/views/home/page-home.vue'
 </script>
 
 <template>
-  <div class="text-primary font-bold text-xl">
-    hello world
+  <div class="h-screen flex items-center justify-center">
+    <page-home />
   </div>
 </template>
