@@ -17,6 +17,6 @@
   ::backdrop,
   ::file-selector-button {
     /* restore tailwindcss v3 behavior giving default border color */
-    border-color: var(--color-gray-200, currentColor);
+    border-color: var(--color-gray-700, currentColor);
   }
 }
