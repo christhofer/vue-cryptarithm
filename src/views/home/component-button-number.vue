@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import { useEventListener } from '@vueuse/core'
+
   const props = defineProps<{
     letterIndex: number,
   }>()
@@ -8,6 +10,14 @@
   const click = (number: number) => {
     answers.value[props.letterIndex] = number === 1 ? '' : (number - 2).toString()
   }
+
+  useEventListener('keydown', (event: KeyboardEvent) => {
+    if (event.key === 'Backspace' || event.key === 'Delete') {
+      return answers.value[props.letterIndex] = ''
+    } else if (event.key >= '0' && event.key <= '9') {
+      answers.value[props.letterIndex] = event.key
+    }
+  })
 </script>
 
 <template>
