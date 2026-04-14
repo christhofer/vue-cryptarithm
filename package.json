@@ -1,16 +1,29 @@
 {
-  "name": "cryptarithm",
+  "name": "sabendino-cryptarithm",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build --force",
+    "lint": "eslint . --fix",
+    "lint:style": "stylelint 'src/**/*.{vue,css}' --fix",
+    "pwa-asset-generate": "npx pwa-assets-generator --manifest=false --preset=minimal-2023 public/logo-512.png",
+    "zip-build": "zip -r dist.zip ./dist/",
+    "delete-zip-build": "rm -rf ./dist/ ./dist.zip",
+    "upload": "scp -r dist.zip sabendino@s1.ruphine.com:webapps/game-cryptarithm/",
+    "release": "ssh sabendino@s1.ruphine.com \"cd webapps/game-cryptarithm && unzip dist.zip && rm -rf public dist.zip && mv dist public \"",
+    "git-tag": "git tag v$npm_package_version && git push origin v$npm_package_version",
+    "publish": "npm run build && npm run zip-build && npm run upload && npm run release && npm run delete-zip-build && npm run git-tag",
+    "git-tag-windows": "git tag v%npm_package_version% && git push origin v%npm_package_version%",
+    "publish-windows": "npm run build && npm run zip-build && npm run upload && npm run release && npm run delete-zip-build && npm run git-tag-windows"
   },
   "dependencies": {
     "@vueuse/core": "^14.2.1",
-    "vue": "^3.5.17"
+    "vue": "^3.5.32"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -18,16 +31,17 @@
     "@stylistic/eslint-plugin": "^5.10.0",
     "@tailwindcss/vite": "^4.2.2",
     "@tsconfig/node24": "^24.0.4",
-    "@types/node": "^25.5.2",
-    "@unocss/eslint-config": "^66.6.7",
-    "@vitejs/plugin-vue": "^6.0.0",
+    "@types/node": "^25.6.0",
+    "@unocss/eslint-config": "^66.6.8",
+    "@vitejs/plugin-vue": "^6.0.6",
     "@vue/tsconfig": "^0.9.1",
     "eslint-plugin-simple-import-sort": "^13.0.0",
     "eslint-plugin-vue": "^10.8.0",
+    "npm-run-all2": "^8.0.4",
     "typescript": "^6.0.2",
-    "typescript-eslint": "^8.58.0",
-    "unocss": "^66.6.7",
-    "vite": "^8.0.5",
+    "typescript-eslint": "^8.58.2",
+    "unocss": "^66.6.8",
+    "vite": "^8.0.8",
     "vue-tsc": "^3.2.6"
   }
 }

@@ -25,7 +25,7 @@ const getLetters = (question: string) => {
 }
 
 const check = (question: string, answers: string[]): boolean => {
-  if (answers.some(answer => answer === '')) {
+  if (answers.some(answer => answer === '')) { // still has unanswered letters
     return false
   }
 
@@ -38,5 +38,14 @@ const check = (question: string, answers: string[]): boolean => {
   const [expression, result] = question.split('=')
     .map(part => part.trim().replace(/[A-Z]/g, (match) => mapping[match]!.toString()))
 
-  return eval(expression as string) === Number(result)
+  if (expression === undefined || result === undefined) {
+    return false
+  }
+
+  const expressionValue = expression
+    .replace(/\s+/g, '') // remove space
+    .match(/[+-]?\d+/g)! // split into terms
+    .reduce<number>((sum, term) => sum + Number(term), 0)
+
+  return expressionValue === Number(result)
 }
