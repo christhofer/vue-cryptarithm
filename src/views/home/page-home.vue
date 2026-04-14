@@ -37,7 +37,7 @@
             <button
               v-for="(letter, i) in line.split('')"
               :key="i"
-              class="w-9 h-14 cursor-pointer"
+              class="w-9 h-14 cursor-pointer focus:outline-none"
               :class="{
                 'letter-selected': selectedLetter === letter
               }"
